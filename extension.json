@@ -1,0 +1,100 @@
+{
+  "name": "GoogleAdSense",
+  "version": "1.0.0",
+  "author": [
+    "Agent Isai"
+  ],
+  "url": "https://www.mediawiki.org/wiki/Extension:GoogleAdSense",
+  "license-name": "GPL-2.0-or-later",
+  "type": "other",
+  "requires": {
+    "MediaWiki": ">= 1.44.0"
+  },
+  "MessagesDirs": {
+    "GoogleAdSense": [
+      "i18n"
+    ]
+  },
+  "AutoloadNamespaces": {
+    "MediaWiki\\Extension\\GoogleAdSense\\": "src/"
+  },
+  "Hooks": {
+    "BeforePageDisplay": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onBeforePageDisplay",
+    "SiteNoticeAfter": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSiteNoticeAfter",
+    "SkinAfterContent": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterContent",
+    "SkinAfterBottomScripts": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterBottomScripts",
+    "SkinBuildSidebar": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinBuildSidebar",
+    "SkinAfterPortlet": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterPortlet",
+    "ParserFirstCallInit": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onParserFirstCallInit",
+    "ParserOutputPostCacheTransform": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onParserOutputPostCacheTransform"
+  },
+  "ResourceModules": {
+    "ext.googleadsense": {
+      "scripts": [
+        "resources/ext.googleadsense.js"
+      ],
+      "styles": [
+        "resources/ext.googleadsense.css"
+      ],
+      "dependencies": [
+        "mediawiki.util"
+      ],
+      "targets": [
+        "desktop",
+        "mobile"
+      ]
+    }
+  },
+  "config": {
+    "GoogleAdSenseEnabled": false,
+    "GoogleAdSenseClient": "",
+    "GoogleAdSenseSlots": {
+      "inline": "",
+      "sidebar": "",
+      "banner": "",
+      "afterContent": "",
+      "footer": "",
+      "floatingBottom": "",
+      "linkClick": ""
+    },
+    "GoogleAdSensePlacements": {
+      "inline": true,
+      "sidebar": true,
+      "banner": false,
+      "afterContent": false,
+      "footer": false,
+      "floatingBottom": false,
+      "linkClick": false
+    },
+    "GoogleAdSenseNamespaces": [
+      0
+    ],
+    "GoogleAdSenseAllowSpecialPages": false,
+    "GoogleAdSenseExemptLoggedIn": true,
+    "GoogleAdSenseRequireViewRight": true,
+    "GoogleAdSenseUniversalInjector": true,
+    "GoogleAdSenseSidebarPortletOrder": [
+      "navigation",
+      "p-navigation",
+      "tb",
+      "p-tb",
+      "mw-panel"
+    ],
+    "GoogleAdSenseLinkClickDelayMs": 0
+  },
+  "AvailableRights": [
+    "googleadsense-viewads",
+    "googleadsense-exempt"
+  ],
+  "GroupPermissions": {
+    "*": {
+      "googleadsense-viewads": true
+    }
+  },
+  "RevokePermissions": {
+    "user": {
+      "googleadsense-viewads": true
+    }
+  },
+  "manifest_version": 2
+}

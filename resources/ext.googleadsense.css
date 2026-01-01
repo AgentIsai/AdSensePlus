@@ -1,0 +1,123 @@
+/* Shared ad wrapper */
+.mw-googleadsense {
+	margin: 1em auto;
+	text-align: center;
+	max-width: 1200px;
+}
+
+/* Ensure ad units don't affect printing */
+.noprint.mw-googleadsense,
+.noprint .mw-googleadsense,
+#mw-googleadsense-runtime.noprint {
+	display: block;
+}
+
+/* Sidebar placement: keep narrow */
+.mw-googleadsense--sidebar {
+	margin: 0.75em 0;
+}
+
+/* Banner placement: near sitenotice */
+.mw-googleadsense--banner {
+	margin: 0.75em auto;
+}
+
+/* After content: under article */
+.mw-googleadsense--afterContent {
+	margin-top: 1.25em;
+}
+
+/* Footer placement */
+.mw-googleadsense--footer {
+	margin: 1.25em auto;
+}
+
+/* Floating bottom bar */
+.mw-googleadsense-floating-bottom {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	padding: 0.5em 0.75em 0.75em;
+	background: rgba(255, 255, 255, 0.98);
+	border-top: 1px solid rgba(0, 0, 0, 0.15);
+	box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.mw-googleadsense-floating-bottom .mw-googleadsense-close {
+	float: right;
+	margin: 0 0 0.25em 0.25em;
+	line-height: 1;
+	font-size: 20px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+/* Link-click interstitial overlay */
+.mw-googleadsense-interstitial {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 10000;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.65);
+}
+
+.mw-googleadsense-interstitial.is-open {
+	display: flex;
+}
+
+.mw-googleadsense-interstitial__panel {
+	background: #fff;
+	width: min(900px, 92vw);
+	max-height: 92vh;
+	overflow: auto;
+	border-radius: 8px;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.mw-googleadsense-interstitial__header {
+	display: flex;
+	justify-content: flex-end;
+	padding: 0.5em 0.75em;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mw-googleadsense-interstitial__body {
+	padding: 0.75em 1em 0.25em;
+}
+
+.mw-googleadsense-interstitial__footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.5em;
+	padding: 0.75em 1em 1em;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mw-googleadsense-interstitial .mw-googleadsense-close {
+	line-height: 1;
+	font-size: 20px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+.mw-googleadsense-continue {
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	background: #f8f9fa;
+	padding: 0.5em 0.75em;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+/* Universal templates are hidden (JS will clone) */
+.mw-googleadsense-templates {
+	display: none;
+}
