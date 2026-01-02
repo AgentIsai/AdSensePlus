@@ -165,41 +165,6 @@ final class Hooks {
 		}
 	}
 
-	public static function onParserFirstCallInit( Parser $parser ): void {
-		$parser->setHook( 'adsense', [ ParserTag::class, 'render' ] );
-	}
-
-	public static function onParserOutputPostCacheTransform( &$html, $parserOutput, $parserOptions = null, ...$rest ): void {
-		// Replace (or remove) <adsense /> markers in a per-request way.
-		if ( strpos( $html, 'mw-googleadsense-marker' ) === false ) {
-			return;
-		}
-
-		$context = RequestContext::getMain();
-		$out = $context->getOutput();
-		$config = $context->getConfig();
-		$authority = $context->getAuthority();
-
-		// If there's no OutputPage (e.g., some CLI contexts), remove markers.
-		if ( !$out || !AdDecision::shouldShowAds( $out, $config, $authority ) ) {
-			$html = preg_replace( AdRenderer::INLINE_MARKER_REGEX, '', $html ) ?? $html;
-			return;
-		}
-
-		$html = preg_replace_callback(
-			AdRenderer::INLINE_MARKER_REGEX,
-			static function ( array $m ) use ( $config ): string {
-				$attrsJson = html_entity_decode( $m['attrs'] ?? '', ENT_QUOTES );
-				$attrs = json_decode( $attrsJson, true );
-				if ( !is_array( $attrs ) ) {
-					$attrs = [];
-				}
-				return AdRenderer::renderPlacement( $config, 'inline', $attrs );
-			},
-			$html
-		) ?? $html;
-	}
-
 	private static function safeGetOutputPage( $skin ): ?OutputPage {
 		if ( $skin instanceof Skin ) {
 			return $skin->getOutput();

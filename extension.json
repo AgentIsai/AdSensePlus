@@ -21,8 +21,6 @@
     "SkinAfterBottomScripts": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterBottomScripts",
     "SkinBuildSidebar": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinBuildSidebar",
     "SkinAfterPortlet": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterPortlet",
-    "ParserFirstCallInit": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onParserFirstCallInit",
-    "ParserOutputPostCacheTransform": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onParserOutputPostCacheTransform"
   },
   "ResourceModules": {
     "ext.googleadsense": {
