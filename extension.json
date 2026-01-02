@@ -1,73 +1,108 @@
 {
-  "name": "AdSense",
-  "version": "1.0.0",
-  "author": ["Agent Isai"],
-  "url": "https://www.mediawiki.org/wiki/Extension:GoogleAdSense",
-  "license-name": "GPL-2.0-or-later",
-  "type": "other",
-  "requires": {
-    "MediaWiki": ">= 1.44.0"
-  },
-  "MessagesDirs": {
-    "GoogleAdSense": ["i18n"]
-  },
-  "AutoloadNamespaces": {
-    "MediaWiki\\Extension\\GoogleAdSense\\": "includes/"
-  },
-  "Hooks": {
-    "BeforePageDisplay": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onBeforePageDisplay",
-    "SiteNoticeAfter": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSiteNoticeAfter",
-    "SkinAfterContent": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterContent",
-    "SkinAfterBottomScripts": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterBottomScripts",
-    "SkinBuildSidebar": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinBuildSidebar",
-    "SkinAfterPortlet": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterPortlet"
-  },
-  "ResourceModules": {
-    "ext.googleadsense": {
-      "scripts": ["resources/ext.googleadsense.js"],
-      "styles": ["resources/ext.googleadsense.css"],
-      "dependencies": ["mediawiki.util"],
-      "targets": ["desktop", "mobile"]
-    }
-  },
-  "config": {
-    "GoogleAdSenseEnabled": false,
-    "GoogleAdSenseClient": "",
-    "GoogleAdSenseSlots": {
-      "inline": "",
-      "sidebar": "",
-      "banner": "",
-      "afterContent": "",
-      "footer": "",
-      "floatingBottom": "",
-      "linkClick": ""
-    },
-    "GoogleAdSensePlacements": {
-      "inline": true,
-      "sidebar": true,
-      "banner": false,
-      "afterContent": false,
-      "footer": false,
-      "floatingBottom": false,
-      "linkClick": false
-    },
-    "GoogleAdSenseNamespaces": [0],
-    "GoogleAdSenseAllowSpecialPages": false,
-    "GoogleAdSenseUniversalInjector": true,
-    "GoogleAdSenseSidebarPortletOrder": [
-      "navigation",
-      "p-navigation",
-      "tb",
-      "p-tb",
-      "mw-panel"
-    ],
-    "GoogleAdSenseLinkClickDelayMs": 0
-  },
-  "AvailableRights": ["googleadsense-exempt"],
-  "GroupPermissions": {
-    "sysop": {
-      "googleadsense-exempt": true
-    }
-  },
-  "manifest_version": 2
+	"name": "AdSense",
+	"version": "1.0.0",
+	"author": [
+		"Agent Isai"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:GoogleAdSense",
+	"license-name": "GPL-2.0-or-later",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.44.0"
+	},
+	"MessagesDirs": {
+		"GoogleAdSense": [
+			"i18n"
+		]
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\GoogleAdSense\\": "includes/"
+	},
+	"Hooks": {
+		"BeforePageDisplay": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onBeforePageDisplay",
+		"SiteNoticeAfter": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSiteNoticeAfter",
+		"SkinAfterContent": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterContent",
+		"SkinAfterBottomScripts": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterBottomScripts",
+		"SkinBuildSidebar": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinBuildSidebar",
+		"SkinAfterPortlet": "MediaWiki\\Extension\\GoogleAdSense\\Hooks::onSkinAfterPortlet"
+	},
+	"ResourceModules": {
+		"ext.googleadsense": {
+			"scripts": ["resources/ext.googleadsense.js"],
+			"styles": ["resources/ext.googleadsense.css"],
+			"dependencies": ["mediawiki.util"],
+			"targets": ["desktop", "mobile"]
+		}
+	},
+	"config": {
+		"GoogleAdSenseEnabled": {
+			"description": "Boolean. Determines whether AdSense should be enabled on the wiki.",
+			"value": false
+		},
+		"GoogleAdSenseClient": {
+			"description": "String. Your AdSense client ID (e.g., ca-pub-XXXXXXXXXXXXXXXX).",
+			"value": ""
+		},
+		"GoogleAdSenseSlots": {
+			"description": "Array. AdSense slot IDs for different placements.",
+			"value": {
+				"inline": "",
+				"sidebar": "",
+				"banner": "",
+				"afterContent": "",
+				"footer": "",
+				"floatingBottom": "",
+				"linkClick": ""
+			}
+		},
+		"GoogleAdSensePlacements": {
+			"description": "Array. Enable or disable AdSense placements.",
+			"value": {
+				"inline": true,
+				"sidebar": true,
+				"banner": false,
+				"afterContent": false,
+				"footer": false,
+				"floatingBottom": false,
+				"linkClick": false
+			}
+		},
+		"GoogleAdSenseNamespaces": {
+			"description": "Array. Namespaces where AdSense is allowed.",
+			"value": {
+				"0": true
+			}
+		},
+		"GoogleAdSenseAllowSpecialPages": {
+			"description": "Boolean. Determines whether ads should display on special pages.",
+			"value": false
+		},
+		"GoogleAdSenseUniversalInjector": {
+			"description": "Boolean. If true, inject ads into all content areas.",
+			"value": false
+		},
+		"GoogleAdSenseSidebarPortletOrder": {
+			"description": "Array. Order of sidebar portlets to consider for ad placement.",
+			"value": [
+				"navigation",
+				"p-navigation",
+				"tb",
+				"p-tb",
+				"mw-panel"
+			]
+		},
+		"GoogleAdSenseLinkClickDelayMs": {
+			"description": "Integer. Delay in milliseconds before showing an ad on link click.",
+			"value": 0
+		}
+	},
+	"AvailableRights": [
+		"googleadsense-exempt"
+	],
+	"GroupPermissions": {
+		"sysop": {
+			"googleadsense-exempt": true
+		}
+	},
+	"manifest_version": 2
 }

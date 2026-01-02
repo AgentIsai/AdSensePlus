@@ -3,8 +3,11 @@ declare(strict_types=1);
 
 namespace MediaWiki\Extension\GoogleAdSense;
 
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\Html\Html;
+use implode;
+use is_array;
+use rawurlencode;
 
 /**
  * HTML rendering for ad containers.

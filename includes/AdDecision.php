@@ -3,10 +3,11 @@ declare( strict_types = 1 );
 
 namespace MediaWiki\Extension\GoogleAdSense;
 
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\ResourceLoader\Module;
+use is_array;
 
 /**
  * Centralized eligibility logic.

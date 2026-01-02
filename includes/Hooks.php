@@ -6,6 +6,8 @@ namespace MediaWiki\Extension\GoogleAdSense;
 use MediaWiki\Html\Html;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Skin\Skin;
+use implode;
+use in_array;
 
 /**
  * Hook handlers for the GoogleAdSense extension.
